@@ -310,15 +310,15 @@ And width = 1000
 
 # 🚀 Possible Improvements
 
-1.For production environments, consider the following improvements:
+For production environments, consider the following improvements:
 
-2.Configure a custom domain with Route 53
+1.Configure a custom domain with Route 53
 
-3.Add Amazon SQS for request queueing
+2.Add Amazon SQS for request queueing
 
-4.Optimize image processing performance
+3.Optimize image processing performance
 
-5.Cache resized images closer to users with CloudFront
+4.Cache resized images closer to users with CloudFront
 
 These improvements will make the system more scalable and production-ready.
 
