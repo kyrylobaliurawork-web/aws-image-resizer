@@ -242,4 +242,3 @@ If this happens, increase the Lambda timeout in the function settings.
 
 These improvements will make the system more scalable and production-ready.
 
----
