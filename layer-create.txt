@@ -1,0 +1,48 @@
+# ===== STEP 1: CREATE DOCKER CONTAINER =====
+# Create and start a Python 3.11 container with interactive bash shell
+# -it           : interactive mode with terminal
+# --name        : give the container a name (pillow-build)
+# python:3.11   : use Python 3.11 official image
+# bash          : start bash shell inside container
+docker run -it --name pillow-build python:3.11 bash
+
+# ===== STEP 2: INSIDE THE CONTAINER =====
+# You are now inside the container (prompt will change to root@...)
+
+# 2.1 Create folder structure for Lambda layer
+mkdir -p lambda-layer/python
+
+# 2.2 Navigate into the folder
+cd lambda-layer
+
+# 2.3 Install Pillow directly into python/ folder (IMPORTANT!)
+#     --platform manylinux2014_x86_64  : ensures compatibility with AWS Lambda
+#     --python-version 3.11             : match your Lambda runtime
+#     --only-binary=:all:               : use pre-compiled binaries
+pip install pillow -t python/ --platform manylinux2014_x86_64 --python-version 3.11 --only-binary=:all:
+
+# 2.4 Verify installation (should show PIL/, pillow.libs/, pillow-*.dist-info)
+ls python/
+
+# 2.5 Package into ZIP file
+zip -r9 /pillow-layer.zip python/
+
+# 2.6 Exit the container (returns to your local machine)
+exit
+
+# ===== STEP 3: COPY ZIP FROM CONTAINER TO YOUR COMPUTER =====
+# Copy the ZIP file from container to your Windows Downloads folder
+# Replace "your-username" with your actual Windows username
+docker cp pillow-build:/pillow-layer.zip C:/Users/your-username/Downloads/
+
+# Alternative using Windows environment variable (works for any user)
+docker cp pillow-build:/pillow-layer.zip %USERPROFILE%/Downloads/
+
+# ===== STEP 4: CLEAN UP (OPTIONAL) =====
+# Stop and remove the container if you don't need it anymore
+docker stop pillow-build
+docker rm pillow-build
+
+# ===== STEP 5: VERIFY THE FILE =====
+# Check that the file was copied successfully
+dir %USERPROFILE%/Downloads/pillow-layer.zip
