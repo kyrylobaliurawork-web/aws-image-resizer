@@ -21,7 +21,7 @@ The main focus of this guide is **architecture and deployment**, not deep code i
 
 # 🏗 Architecture
 
-![Architecture Diagram](images/1-project-diagram.png)
+![Architecture Diagram](images/1-aws-project-diagram.png)
 
 ### Workflow
 
