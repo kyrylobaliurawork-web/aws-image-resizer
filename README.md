@@ -214,19 +214,15 @@ Then integrate the API with the Lambda function.
 
 ![Inegrate with lambda](images/21-integrate-lambda.png)
 
-And here leave the default settings
 
 ![Default settings](images/22-get-apigateway.png)
 
----
-
-# 🔗 API Endpoint
-
+And here leave the default settings
 ![Api Endpoint](images/23-default-apigateway.png)
 
 ---
 
-#🔌 Lambda Trigger
+# 🔌Lambda Trigger
 
 After deployment, API Gateway will appear as a Lambda trigger.
 
