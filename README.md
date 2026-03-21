@@ -238,7 +238,7 @@ Optionally, you can configure a custom domain using Amazon Route 53.
 
 # 🛑Small error
 
-To fix this error you just need to read the error message, it tells to us about "missing parameters"
+To fix this error you just need to read the error message(which we added in our code), it tells to us about "missing parameters"
 We need to add parametrs into this URL: https://z35ltl60id.execute-api.us-east- amazonaws.com/resize 
 Example: https://z35ltl60id.execute-api.us-east- amazonaws.com/resize?image=photo.jpeg&width=300
 
